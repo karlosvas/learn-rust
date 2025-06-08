@@ -63,23 +63,23 @@ fn calcula_factorial(number: u128) -> u128 {
     }
 }
 
-fn esPrime(number: u128) -> bool {
+fn is_prime(number: u128) -> bool {
     if number < 2{
         false
     } else {
-        let mut isPrime: bool = true;
+        let mut prime: bool = true;
         // Casteo a float
         let squere: f64 = number as f64;
 
         // Recorremos de a la raiz cuadrada
         for i in 2..((squere.sqrt() as i128)+1) {
             if (number as i128)%i == 0 {
-                isPrime = false;
+                prime = false;
                 break;
             }
         }
 
-        isPrime
+        prime
     }
 }
 
@@ -91,10 +91,10 @@ pub fn main(){
     let resultado = calcula_factorial(1);
     let resultado2 = calcula_factorial(3);
     println!("{} {}", resultado, resultado2);
-    println!("{}", esPrime(12));
-    println!("{}", esPrime(13));
-    println!("{}", esPrime(15));
-    println!("{}", esPrime(0));
-    println!("{}", esPrime(1));
-    println!("{}", esPrime(2));
+    println!("{}", is_prime(12));
+    println!("{}", is_prime(13));
+    println!("{}", is_prime(15));
+    println!("{}", is_prime(0));
+    println!("{}", is_prime(1));
+    println!("{}", is_prime(2));
 }

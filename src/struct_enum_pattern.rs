@@ -1,34 +1,34 @@
 
 // Estructura de datos, tipo
 #[derive(Debug)]
-struct suscriptor_de_karlosvas {
+struct SuscriptorDeKarlosVas {
     nombre: String,
     beautiful: bool,
     es_inteligente: bool
 }
 
 // Constructor
-// fn se_suscribe(nuevo_suscriptor: String) -> suscriptor_de_karlosvas {
-//     suscriptor_de_karlosvas {
+// fn se_suscribe(nuevo_suscriptor: String) -> SuscriptorDeKarlosVas {
+//     SuscriptorDeKarlosVas {
 //         es_inteligente: true,
 //         nombre: nuevo_suscriptor,
 //         beautiful: true
 //     }
 // } 
 // Esto es lo mismo
-fn se_suscribe(nombre: String) -> suscriptor_de_karlosvas {
-    suscriptor_de_karlosvas { es_inteligente: true, nombre, beautiful: true }
+fn se_suscribe(nombre: String) -> SuscriptorDeKarlosVas {
+    SuscriptorDeKarlosVas { es_inteligente: true, nombre, beautiful: true }
 } 
 
-impl suscriptor_de_karlosvas {
+impl SuscriptorDeKarlosVas {
     fn se_desuscribe(&mut self, nuevo_nombre: String) {
         self.nombre = nuevo_nombre;
         self.beautiful = false;
         self.es_inteligente = false;
     }
     // Funcion asociada
-    fn new_sub(nuevo_suscriptor: String) -> suscriptor_de_karlosvas {
-        suscriptor_de_karlosvas {
+    fn new_sub(nuevo_suscriptor: String) -> SuscriptorDeKarlosVas {
+        SuscriptorDeKarlosVas {
             es_inteligente:  true,
             nombre: nuevo_suscriptor,
             beautiful: true
@@ -64,10 +64,10 @@ pub struct Coche {
 
 pub fn main(){
     // Creammo sun nuevo suscriptor
-    let nuevo_suscriptor: suscriptor_de_karlosvas = se_suscribe(String::from("Stan"));
+    let nuevo_suscriptor: SuscriptorDeKarlosVas = se_suscribe(String::from("Stan"));
     print!("{}", nuevo_suscriptor.nombre);
     // Todos los campos no especificados los hereda del suiscriptor que se le pasa
-    let mut segundo_sub = suscriptor_de_karlosvas {
+    let mut segundo_sub = SuscriptorDeKarlosVas {
         nombre: String::from("Stana2"),
         ..nuevo_suscriptor
     };
@@ -77,7 +77,7 @@ pub fn main(){
     let rgb: RGBColor = RGBColor(233, 233, 233);
     println!("{}", rgb.0);
 
-    let hola: suscriptor_de_karlosvas = suscriptor_de_karlosvas::new_sub(String::from("hola"));
+    let hola: SuscriptorDeKarlosVas = SuscriptorDeKarlosVas::new_sub(String::from("hola"));
     println!("{:?}", hola);
 
     let fav_num: Option<i8> = Some(24);
