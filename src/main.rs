@@ -1,5 +1,7 @@
 mod fundamentos;
+mod gestionmemoria;
 
 fn main() {
-    fundamentos::main();
+    // fundamentos::main();
+    // gestionmemoria::main();
 }
