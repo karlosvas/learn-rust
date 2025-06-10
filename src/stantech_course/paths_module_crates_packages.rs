@@ -1,5 +1,7 @@
 use rand::prelude::*;
 use std::fs::File;
+// mod extra;
+// use extra::*;
 
 fn numero_random() {
     let mut rng: ThreadRng = thread_rng();
@@ -18,11 +20,14 @@ fn panic_moment(){
     };
 }
 
+fn traer_grua(){}
+
 mod taller {
     pub mod recepcion{
         fn add_cita(){}
-        fn llevar_a_taller(){}
-        // super::traer_grua();
+        fn llevar_a_taller(){
+            super::super::traer_grua();
+        }
     }
     pub mod garaje{
         pub fn arreglar_coche(){}
@@ -30,25 +35,26 @@ mod taller {
 }
 
 pub fn llevar_a_arreglar(){
-    // "crate" es como el slash en una ruta absoluta
-    crate::taller::garaje::arreglar_coche();
+    // "self" es como el slash en una ruta absoluta dentro del módulo actual
+    self::taller::garaje::arreglar_coche();
     // SI quiero utilizar rutas relativas
     taller::garaje::arreglar_coche();
 }
 
 // El termino USE
-use crate::taller::garaje as my_garaje;
+use self::taller::garaje as my_garaje;
 pub fn prueba_codigo(){
     my_garaje::arreglar_coche();
 }
 
 // Modo idiomatico
-use crate::taller::garaje::arreglar_coche;
+use self::taller::garaje::arreglar_coche;
 pub fn prueba_codigo2(){
     arreglar_coche();
 }
 
-// use mechainchop::garaje2::arreglar_coche2;
+// Para acceder desde la raíz del proyecto
+// use stantetech_course::paths_module_crates_packages::taller::garaje::arreglar_coche;
 // use tallermecanico::mi_taller::arreglar_super_coche;
 
 pub fn main(){
